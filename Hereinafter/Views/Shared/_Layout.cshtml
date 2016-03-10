@@ -9,36 +9,101 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="div-section">
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control"/>
+                    <i class="form-control-feedback glyphicon glyphicon-search icon-el"></i>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div class="div-section">
+                <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                    <li class="active">
+                        <a href="#all" data-toggle="tab">
+                            All
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#editor" data-toggle="tab">
+                            Editor
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#owner" data-toggle="tab">
+                            Owner
+                        </a>
+                    </li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <div id="my-tab-content" class="tab-content">
+                    <div class="tab-pane active tab-content" id="all">
+                        list
+                    </div>
+                    <div class="tab-pane tab-content" id="editor">
+                        All that I am editor at
+                    </div>
+                    <div class="tab-pane tab-content" id="owner">
+                        All that I own
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        <!-- /#sidebar-wrapper -->
+
+        <div>
+            <div class="div-header">
+                <button id="menu-toggle" class="btn btn-link icon-el glyphicon glyphicon-menu-hamburger"></button>
+                    <button class="btn btn-link dropdown">
+                        <a href="#" class="dropdown-toggle icon-el" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <img src="cinqueterre.jpg" class="img-circle">
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">
+                                    Account
+                                </a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Apply
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Create
+                                </a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Log out
+                                </a>
+                            </li>
+                        </ul>
+                    </button>
+            </div>
+            <div class="body-content">
+                @RenderBody()
+            </div>
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 </body>
 </html>

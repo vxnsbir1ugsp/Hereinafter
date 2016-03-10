@@ -25,6 +25,8 @@ namespace Hereinafter
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.min.css",
+                      "~/Content/simple-sidebar.css",
                       "~/Content/site.css"));
         }
     }
