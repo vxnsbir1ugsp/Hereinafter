@@ -3,12 +3,17 @@
     font-weight: lighter;
 }
 
-*, *:before, *:after {
+*, *:before, *:after, *:focus, textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    box-shadow: none;
     outline-style: none !important;
 }
 
-*:focus {
-    outline: none;
+.form-control:focus {
+  outline-style: none !important;
+}
+
+::selection {
+    background: #CDEBFF;
 }
 
 html, body {
@@ -19,16 +24,8 @@ html, body {
     overflow-x: hidden; 
 }
 
-.body-content {
-    margin-bottom: 16px;
-}
-
 .main-content {
     margin: 16px 16px 16px 16px;
-}
-
-::selection {
-    background: #CDEBFF;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -54,6 +51,13 @@ footer {
     position: fixed;
 }
 
+.footer-p {
+    font-size: small;
+    line-height: 1.0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
 img {
     width: 32px;
     height: 32px;
@@ -76,19 +80,11 @@ img {
     margin: 4px 4px 0 4px;
 }
 
-.tab-content {
+
+.tab-content-inside {
+    overflow-y: auto;
+}
+
+.tab-content, .tab-content-inside {
     padding: 2px 2px 2px 2px;
 }
-
-.cell {
-    display: table-cell;
-    vertical-align: central;
-}
-
-.content {
-    float: left;
-}
-
-.content2{
-    float: right;
-} 

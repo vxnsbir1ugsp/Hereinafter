@@ -6,22 +6,21 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    <div id="wrapper" class="body-content">
+    <div id="wrapper" class="toggled">
         <div id="sidebar-wrapper">
             <div class="div-section">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" placeholder="Search for company/project"/>
                     <i class="form-control-feedback glyphicon glyphicon-search icon-el"></i>
                 </div>
             </div>
             <div class="div-section">
                 <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
                     <li class="active">
-                        <a href="#all" data-toggle="tab">
-                            All
+                        <a href="#pinned" data-toggle="tab">
+                            <span class="glyphicon glyphicon glyphicon-pushpin"></span>
                         </a>
                     </li>
                     <li>
@@ -34,50 +33,57 @@
                             Owner
                         </a>
                     </li>
+                    <li>
+                        <a href="#all" data-toggle="tab">
+                            All
+                        </a>
+                    </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active tab-content" id="all">
-                        All
+                    <div class="tab-pane active tab-content-inside" id="pinned">
+                        Pinned
                     </div>
-                    <div class="tab-pane tab-content" id="editor">
+                    <div class="tab-pane tab-content-inside" id="editor">
                         Editor
                     </div>
-                    <div class="tab-pane tab-content" id="owner">
+                    <div class="tab-pane tab-content-inside" id="owner">
                         Owner
+                    </div>
+                    <div class="tab-pane tab-content-inside" id="all">
+                        All
                     </div>
                 </div>
             </div>
         </div>
-
-        <div>
+        <div id="content-wrapper">
             <header>
                 <button id="menu-toggle" class="btn btn-link hamburger-menu-btn icon-el">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
                 </button>
-                <button class="btn btn-link dropdown account-menu-btn">
+                <div class="btn btn-link dropdown account-menu-btn" data-target="#myModal">
                     <a href="#" class="dropdown-toggle icon-el" data-toggle="dropdown" role="button" aria-expanded="false">
                         <img src="~/Assets/profile_pic.jpg" class="img-circle">
                     </a>
-                    <ul class="dropdown-menu pull-right" role="menu">
+                    <ul id="myModal" class="dropdown-menu pull-right" role="menu">
                         <li>
-                            <a href="#">
+                            <a href='@Url.Action("About", "Home")'>
                                 Create
                             </a>
                         </li>
                         <li class="divider">
                         </li>
                         <li>
-                            <a href="#">
+                            <a href='@Url.Action("About", "Home")'>
                                 Settings
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href='@Url.Action("Contact", "Home")'>
                                 Log out
                             </a>
                         </li>
                     </ul>
-                </button>
+                </div>
             </header>
             <div class="main-content">
                 @RenderBody()
@@ -86,7 +92,7 @@
     </div>
 
     <footer>
-        &copy; @DateTime.Now.Year - My ASP.NET Application
+        <p class="footer-p">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
@@ -98,6 +104,10 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
+
+        $(".btn").mouseup(function () {
+            $(this).blur();
+        })
     </script>
 </body>
 </html>
