@@ -9,12 +9,11 @@
 
 </head>
 <body>
-    <div id="wrapper">
-        <!-- Sidebar -->
+    <div id="wrapper" class="body-content">
         <div id="sidebar-wrapper">
             <div class="div-section">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control"/>
+                    <input type="text" class="form-control" />
                     <i class="form-control-feedback glyphicon glyphicon-search icon-el"></i>
                 </div>
             </div>
@@ -36,74 +35,69 @@
                         </a>
                     </li>
                 </ul>
-                <div id="my-tab-content" class="tab-content">
+                <div class="tab-content">
                     <div class="tab-pane active tab-content" id="all">
-                        list
+                        All
                     </div>
                     <div class="tab-pane tab-content" id="editor">
-                        All that I am editor at
+                        Editor
                     </div>
                     <div class="tab-pane tab-content" id="owner">
-                        All that I own
+                        Owner
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /#sidebar-wrapper -->
 
         <div>
-            <div class="div-header">
-                <button id="menu-toggle" class="btn btn-link icon-el glyphicon glyphicon-menu-hamburger"></button>
-                    <button class="btn btn-link dropdown">
-                        <a href="#" class="dropdown-toggle icon-el" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="cinqueterre.jpg" class="img-circle">
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#">
-                                    Account
-                                </a>
-                            </li>
-                            <li class="divider">
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Apply
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Create
-                                </a>
-                            </li>
-                            <li class="divider">
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Log out
-                                </a>
-                            </li>
-                        </ul>
-                    </button>
-            </div>
-            <div class="body-content">
+            <header>
+                <button id="menu-toggle" class="btn btn-link hamburger-menu-btn icon-el">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
+                <button class="btn btn-link dropdown account-menu-btn">
+                    <a href="#" class="dropdown-toggle icon-el" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <img src="~/Assets/profile_pic.jpg" class="img-circle">
+                    </a>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li>
+                            <a href="#">
+                                Create
+                            </a>
+                        </li>
+                        <li class="divider">
+                        </li>
+                        <li>
+                            <a href="#">
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Log out
+                            </a>
+                        </li>
+                    </ul>
+                </button>
+            </header>
+            <div class="main-content">
                 @RenderBody()
             </div>
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
         </div>
     </div>
+
+    <footer>
+        &copy; @DateTime.Now.Year - My ASP.NET Application
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
     </script>
 </body>
 </html>

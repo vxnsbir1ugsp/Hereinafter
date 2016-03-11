@@ -1,6 +1,14 @@
-﻿*{
-    font-family:'Segoe UI';
-    font-weight:lighter;
+﻿* {
+    font-family: 'Segoe UI';
+    font-weight: lighter;
+}
+
+*, *:before, *:after {
+    outline-style: none !important;
+}
+
+*:focus {
+    outline: none;
 }
 
 html, body {
@@ -11,11 +19,12 @@ html, body {
     overflow-x: hidden; 
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
+    margin-bottom: 16px;
+}
+
+.main-content {
     margin: 16px 16px 16px 16px;
-    border: 1px solid;
-    border-color: #dddddd;
 }
 
 ::selection {
@@ -36,25 +45,31 @@ textarea {
     max-width: 256px;
 }
 
-.div-header {
-    background-color: #2780e3;
-    margin: 4px 0 0 0;
-}
-
 footer {
     color: #ffffff;
     background-color: #2780e3;
+    text-align: center;
     width: 100%;
     bottom: 0;
     position: fixed;
 }
 
-.icon-el {
-    color: #dddddd;
+img {
+    width: 32px;
+    height: 32px;
 }
 
-.icon-el:hover {
-    text-decoration: none;
+.hamburger-menu-btn {
+    vertical-align: top;
+    margin-top: 4px;
+}
+
+.account-menu-btn {
+    float: right;
+}
+
+.icon-el {
+    color: #dddddd;
 }
 
 .div-section {
