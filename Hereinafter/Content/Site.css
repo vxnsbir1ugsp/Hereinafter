@@ -63,12 +63,16 @@ img {
     height: 32px;
 }
 
-.hamburger-menu-btn {
+.header-btn {
     vertical-align: top;
     margin-top: 4px;
 }
 
-.account-menu-btn {
+.header-btn:hover {
+    text-decoration: none;
+}
+
+.header-menu {
     float: right;
 }
 

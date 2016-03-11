@@ -57,32 +57,38 @@
         </div>
         <div id="content-wrapper">
             <header>
-                <button id="menu-toggle" class="btn btn-link hamburger-menu-btn icon-el">
+                <button id="menu-toggle" class="btn btn-link header-btn icon-el">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
                 </button>
-                <div class="btn btn-link dropdown account-menu-btn" data-target="#myModal">
-                    <a href="#" class="dropdown-toggle icon-el" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <img src="~/Assets/profile_pic.jpg" class="img-circle">
-                    </a>
-                    <ul id="myModal" class="dropdown-menu pull-right" role="menu">
-                        <li>
-                            <a href='@Url.Action("About", "Home")'>
-                                Create
-                            </a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href='@Url.Action("About", "Home")'>
-                                Settings
-                            </a>
-                        </li>
-                        <li>
-                            <a href='@Url.Action("Contact", "Home")'>
-                                Log out
-                            </a>
-                        </li>
-                    </ul>
+                <div class="btn-group header-menu" role="group">
+                    <button class="btn btn-link header-btn icon-el">
+                        <span id="numberOfLetters">3</span>
+                        <span class="glyphicon glyphicon-envelope"></span>
+                    </button>
+                    <div class="btn btn-link">
+                        <a href="#" class="dropdown-toggle icon-el" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <img src="~/Assets/profile_pic.jpg" class="img-circle">
+                        </a>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li>
+                                <a href='@Url.Action("About", "Home")'>
+                                    Create
+                                </a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a href='@Url.Action("About", "Home")'>
+                                    Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href='@Url.Action("Contact", "Home")'>
+                                    Log out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </header>
             <div class="main-content">
@@ -90,7 +96,6 @@
             </div>
         </div>
     </div>
-
     <footer>
         <p class="footer-p">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
